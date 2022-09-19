@@ -47,16 +47,16 @@ chmod +x encode.sh
 }
 
 start(){
-  nohup ss-server -s 10.0.0.4 -p 30022 -u -b 10.0.0.4 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.11 -p 30022 -u -b 10.0.0.11 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.12 -p 30022 -u -b 10.0.0.12 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.13 -p 30022 -u -b 10.0.0.13 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.14 -p 30022 -u -b 10.0.0.14 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.15 -p 30022 -u -b 10.0.0.15 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.16 -p 30022 -u -b 10.0.0.16 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.17 -p 30022 -u -b 10.0.0.17 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.18 -p 30022 -u -b 10.0.0.18 -k 111111 -m chacha20-ietf-poly1305 &
-  nohup ss-server -s 10.0.0.19 -p 30022 -u -b 10.0.0.19 -k 111111 -m chacha20-ietf-poly1305 &
+  nohup ss-server -s 10.0.0.4 -p 30022 -u -b 10.0.0.4 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.11 -p 30022 -u -b 10.0.0.11 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.12 -p 30022 -u -b 10.0.0.12 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.13 -p 30022 -u -b 10.0.0.13 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.14 -p 30022 -u -b 10.0.0.14 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.15 -p 30022 -u -b 10.0.0.15 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.16 -p 30022 -u -b 10.0.0.16 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.17 -p 30022 -u -b 10.0.0.17 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.18 -p 30022 -u -b 10.0.0.18 -k 111111 -m chacha20-ietf &
+  nohup ss-server -s 10.0.0.19 -p 30022 -u -b 10.0.0.19 -k 111111 -m chacha20-ietf &
 }
 
 stop(){
@@ -81,7 +81,7 @@ ip19=`curl --interface eth0:8 ifconfig.me`
         nip=ip${i}
         #pass=`echo "111111"|base64`
         mark=`echo "${!nip}"|base64`
-        str="${!nip}:30022:auth_sha1_v4:chacha20-ietf-poly1305:plain:MTExMTEx/?remarks=${mark}"
+        str="${!nip}:30022:auth_sha1_v4:chacha20-ietf:plain:MTExMTEx/?remarks=${mark}"
         #echo $str
 	      ./encode.sh $str encode
         #echo "ShadowsocksR链接：ssr://$str" >> link.log      
